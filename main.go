@@ -1,10 +1,15 @@
 package main
 
 import (
-	"fmt"
+	"log"
+	"os"
+
 	"github.com/kapustkin/envdir/internal"
 )
 
 func main() {
-	internal.Hello()
+	err := internal.Run(os.Args[1:])
+	if err != nil {
+		log.Fatal(err)
+	}
 }

@@ -12,8 +12,8 @@
             "program": "${fileDirname}",
             "env": {},
             "args": [
-                "-from", "d:/123.txt",
-                "-to", "d:/321.txt"
+                "d:\\Documents\\Lesson_12\\envdir\\test\\1",
+                "cmd.exe"
             ],  
             "cwd": "${workspaceRoot}", 
             "showLog": false
