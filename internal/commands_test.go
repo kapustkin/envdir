@@ -15,7 +15,7 @@ func TestGetEnviroment1(t *testing.T) {
 func TestGetEnviroment2(t *testing.T) {
 	res, err := getEnviroment("../test/2")
 	assert.NotNil(t, err)
-	assert.Equal(t, res, []string(nil))
+	assert.Equal(t, res, []string{})
 }
 
 func TestGetEnvParametr1(t *testing.T) {

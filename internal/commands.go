@@ -41,12 +41,11 @@ func start(command string, env []string) error {
 }
 
 func getEnviroment(envDir string) ([]string, error) {
-	var result []string
 	files, err := ioutil.ReadDir(envDir)
 	if err != nil {
-		return result, err
+		return []string{}, err
 	}
-
+	result := make([]string, 0)
 	for _, file := range files {
 		if file.IsDir() {
 			continue
@@ -54,8 +53,7 @@ func getEnviroment(envDir string) ([]string, error) {
 
 		param, err := getEnvParametr(path.Join(envDir, file.Name()))
 		if err != nil {
-			var emptyRes []string
-			return emptyRes, err
+			return []string{}, err
 		}
 		result = append(result, param)
 	}
