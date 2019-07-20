@@ -47,7 +47,6 @@ func getEnviroment(envDir string) ([]string, error) {
 		return result, err
 	}
 
-	result = make([]string, len(files))
 	for _, file := range files {
 		if file.IsDir() {
 			continue
@@ -66,9 +65,9 @@ func getEnviroment(envDir string) ([]string, error) {
 func getEnvParametr(fileName string) (string, error) {
 	data, err := ioutil.ReadFile(fileName)
 	if err != nil {
-		return "", nil
+		return "", err
 	}
-	//fmt.Printf("%s %s", fileName, data)
+
 	var result strings.Builder
 	result.WriteString(fileNameWithoutExtension(fileName))
 	result.WriteString("=")
